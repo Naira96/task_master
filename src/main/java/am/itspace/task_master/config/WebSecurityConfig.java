@@ -37,12 +37,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").hasAnyAuthority("ADMIN")
                 .antMatchers("/user").hasAnyAuthority("EMPLOYER")
                 .antMatchers("/project/add").hasAnyAuthority("ADMIN")
-                .antMatchers("/project/all").hasAnyAuthority("ADMIN", "USER")
+                .antMatchers("/project/all").hasAnyAuthority("ADMIN", "EMPLOYER")
                 .antMatchers("/user/delete").hasAnyAuthority("ADMIN")
-                .antMatchers("/allUsers").hasAnyAuthority("ADMIN", "USER")
-                .antMatchers("/allTasks").hasAnyAuthority("ADMIN", "USER");
+                .antMatchers("/allUsers").hasAnyAuthority("ADMIN", "EMPLOYER")
+                .antMatchers("/allTasks").hasAnyAuthority("ADMIN", "EMPLOYER");
     }
-
 
 
     @Override
