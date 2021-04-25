@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color: #989898;">
+<h5>ADD TASK</h5> <br>
+
+<form action="/task/add" method="post">
+    <input type="text" id="title" name="title" required=""><br>
+    <input type="date" id="deadline" name="deadline" required=""><br>
+    <select name="users">
+        <option th:each="user:${users}" th:value="${user.id}"
+                th:text="${user.name}"></option>
+    </select> <br>
+    <select name="project">
+        <option th:each="project:${projects}" th:value="${project.id}"
+                th:text="${project.name}"></option>
+    </select><br>
+    <select name="status">
+        <option value="NEW">NEW</option>
+        <option value="IN_PROGRESS">IN_PROGRESS</option>
+        <option value="TESTING">TESTING</option>
+        <option value="DONE">DONE</option>
+    </select><br>
+    <input type="submit" value="add">Add</input>
+</form>
+
+</body>
+</html>
